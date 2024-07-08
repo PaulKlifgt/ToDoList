@@ -1,0 +1,17 @@
+{% load static %}
+<div class="task">
+    <tr>
+    {% if task.done == True %}
+        <td><a class="done" href="/uncomplete/{{task.id}}"><img src="{% static 'img/complete.svg' %}" alt=""></a></td>
+    {% else %}
+        <td><a class="done" href="/complete/{{task.id}}"><img src="{% static 'img/uncomplete.svg' %}" alt=""></a></td>
+    {% endif %}
+    {% if task.task_text|length > 10 and task.task_text|slice:":10:" != task.task_text %}
+        <td><h3>{{ task.task_text|slice:":10:" }}...</h3></td>
+        <a class="about" href="/task/{{ task.id }}">подробнее</a>
+    {% else %}
+        <td><h3>{{ task.task_text}}</h3></td>
+        <a class="about" href="/task/{{ task.id }}">подробнее</a>
+    {% endif %}
+    </tr>
+</div>

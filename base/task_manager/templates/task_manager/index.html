@@ -1,0 +1,19 @@
+{% extends 'task_manager/layot.html' %}
+{% block title %}Главная{% endblock title%}
+{% load static %}
+{% block content %}
+<div class="topp">
+    <h1><a href="/add">Добавить задачу</a></h1>
+    <hr>
+</div>
+    <br>
+    <div class="tasks">
+    {% if latest_tasks %}
+        {% for task in latest_tasks %}
+            {% include 'task_manager/_task.html' %}
+        {% endfor %}
+    {% else %}
+        <h2>Нет добавленных задач!</h2>
+    {% endif %}
+    </div>
+{% endblock content %}

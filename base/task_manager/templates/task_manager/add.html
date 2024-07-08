@@ -1,0 +1,15 @@
+{% extends 'task_manager/layot.html' %}
+{% load static %}
+{% block title %}Создать задачу{% endblock title %}
+
+{% block content %}
+    <h1><a href="/">На главную</a></h1><hr> 
+    <form action="" method="post">
+        {% csrf_token %}
+        <span>Текст задачи:</span>
+        <input type="text" id="adjinput" name="task_text"><br><br>
+        <button type="submit">Добавить</button>
+    </form>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+{% endblock content %}

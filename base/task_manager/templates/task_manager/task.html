@@ -1,0 +1,11 @@
+{% extends 'task_manager/layot.html' %}
+{% load static %}
+{% block title %}Task N{{task.id}}{% endblock title %}
+
+{% block content %}
+    <h1><a href="/">На главную</a></h1><hr>
+    <h2>{{task.task_text}}</h2>
+    <h4>Добавлено: {{task.pub_date}}</h4>
+    <h3><a href="/delete/{{task.id}}">Удалить</a></h3>
+    <h3><a href="/change/{{task.id}}">Изменить</a></h3>
+{% endblock content %}
